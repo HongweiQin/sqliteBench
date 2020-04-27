@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source config
+
+DB=$DBPrefix$1".db"
+
+#Prepare data
+data=""
+for (( j=0;j<$datasize;j++ ));
+do
+  data+="x"
+done
+
+#Insert rows in table
+for (( i=0; i<$nrows; i++ ));
+do
+  echo "INSERT INTO tbl VALUES ("$i",\""$data"\");" |\
+	$SQLITE $DB
+done
+
+

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source config
+
+for (( i=0;i<$njob;i++ ));
+do
+./tools/createDB $i 
+done

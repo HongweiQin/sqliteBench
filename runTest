@@ -1,0 +1,8 @@
+#!/bin/bash
+
+source config
+
+for (( i=0;i<$njob;i++ ));
+do
+{ time ./tools/insertJob $i; } 2>${RESULTPREFIX}${i}.res &
+done

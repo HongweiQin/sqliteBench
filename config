@@ -1,0 +1,18 @@
+#Number of concurrent jobs
+njob=16
+
+#Number of rows to insert for each job
+nrows=10
+
+#Each table is defined as (long, char[$datasize])
+datasize=4096
+
+#Where to store your database files
+DBPrefix="db/Insert"
+
+#Where to store results
+RESULTPREFIX="res/res"
+
+#sqlite3 binary
+SQLITE=/mnt/sdb/sqlite/bld/sqlite3
+
