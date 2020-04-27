@@ -1,4 +1,4 @@
-#SQLite Bench
+# SQLite Bench
 
 A Benchmark Tool For SQLite3
 
