@@ -4,5 +4,10 @@ source config
 
 for (( i=0;i<$njob;i++ ));
 do
-{ time ./tools/insertJob $i; } 2>${RESULTPREFIX}${i}.res &
+	{ time ./tools/insertJob $i; } 2>${RESULTPREFIX}${i}.res &
+	pids[${i}]=$!
+done
+
+for pid in ${pids[*]}; do
+    wait $pid
 done

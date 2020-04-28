@@ -4,5 +4,10 @@ source config
 
 for (( i=0;i<$njob;i++ ));
 do
-./tools/createDB $i 
+./tools/createDB $i &
+pids[$i]=$!
+done
+
+for pid in ${pids[*]}; do
+    wait $pid
 done

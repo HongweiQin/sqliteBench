@@ -2,13 +2,13 @@
 njob=16
 
 #Number of rows to insert for each job
-nrows=10
+nrows=4
 
 #Each table is defined as (long, char[$datasize])
 datasize=4096
 
 #Where to store your database files
-DBPrefix="db/Insert"
+DBPrefix="/mnt/qhw/Insert"
 
 #Where to store results
 RESULTPREFIX="res/res"
