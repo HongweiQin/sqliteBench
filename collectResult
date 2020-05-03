@@ -1,0 +1,21 @@
+#!/bin/bash
+
+source config
+
+TPF=./.__tmpf__
+
+resFiles=`ls ${RESULTPREFIX}*`
+
+echo "" > $TPF
+
+for rf in $resFiles;
+do
+cat $rf >> $TPF
+done
+
+./tools/collect_awk -F'[sm \t]' $TPF
+
+rm -f $TPF
+
+
+

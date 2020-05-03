@@ -1,0 +1,22 @@
+#!/bin/awk -f
+
+BEGIN {
+totalm=0;
+totals=0;
+count=0;
+}
+
+/real/ {
+totalm+=$2;
+totals+=$3;
+count++;
+}
+
+END {
+print "Total minutes: "totalm
+print "Total seconds: "totals
+print "Counts: "count
+print "Average seconds: "(totalm*60+totals)/count
+}
+
+
