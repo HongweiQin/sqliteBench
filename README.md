@@ -15,3 +15,7 @@ create databases and tables
 run test
 
 `./runTest`
+
+collect results
+
+`./collectResult`
