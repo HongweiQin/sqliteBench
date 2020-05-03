@@ -2,20 +2,34 @@
 
 source config
 
-TPF=./.__tmpf__
+TPF1=./.__tmpf1__
+TPF2=./.__tmpf2__
 
+fakeFiles=`ls ${FAKEPREFIX}*`
 resFiles=`ls ${RESULTPREFIX}*`
 
-echo "" > $TPF
+echo "" > $TPF1
+echo "" > $TPF2
 
 for rf in $resFiles;
 do
-cat $rf >> $TPF
+cat $rf >> $TPF1
 done
 
-./tools/collect_awk -F'[sm \t]' $TPF
+for fake in $fakeFiles;
+do
+cat $fake >> $TPF2
+done
 
-rm -f $TPF
+echo "------comparison test results---------"
+./tools/collect_awk -F'[sm \t]' $TPF2
 
+echo "------actual test results-------------"
+./tools/collect_awk -F'[sm \t]' $TPF1
+
+echo "--------------------------------------"
+
+rm -f $TPF1
+rm -f $TPF2
 
 

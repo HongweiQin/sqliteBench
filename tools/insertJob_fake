@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #
-# IMPORTANT: Any modification to this file should also do against "insertJob_fake"
+# IMPORTANT: Any modification to this file should also do against "insertJob"
 #
 
 source config
@@ -21,14 +21,6 @@ done
 for (( j=0;j<$__dsize;j++ ));
 do
   data+="x"
-done
-
-
-# Insert rows into the table
-for (( i=0; i<$nrows; i++ ));
-do
-  echo "INSERT INTO tbl VALUES ("$i",\""$data"\");" |\
-        $SQLITE $DB
 done
 
 

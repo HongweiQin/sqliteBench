@@ -2,12 +2,19 @@
 
 source config
 
+mkdir -p $RESULTPREFIX
+mkdir -p $FAKEPREFIX
+
+rm -f $RESULTPREFIX/*
+rm -f $FAKEPREFIX/*
+
 for (( i=0;i<$njob;i++ ));
 do
-./tools/createDB $i &
-pids[$i]=$!
+	./tools/createDB $i &
+	pids[$i]=$!
 done
 
-for pid in ${pids[*]}; do
-    wait $pid
+for pid in ${pids[*]};
+do
+	wait $pid
 done
