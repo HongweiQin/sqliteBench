@@ -13,10 +13,7 @@ count++;
 }
 
 END {
-print "Total minutes: "totalm
-print "Total seconds: "totals
-print "Counts: "count
-print "Average seconds: "(totalm*60+totals)/count
+print (totalm*60+totals)/count
 }
 
 

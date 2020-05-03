@@ -21,13 +21,22 @@ do
 cat $fake >> $TPF2
 done
 
-echo "------comparison test results---------"
-./tools/collect_awk -F'[sm \t]' $TPF2
 
-echo "------actual test results-------------"
-./tools/collect_awk -F'[sm \t]' $TPF1
+./tools/collect_awk -F'[sm \t]' $TPF2 > .average_allocSec
+./tools/collect_awk -F'[sm \t]' $TPF1 > .average_runTime
 
-echo "--------------------------------------"
+average_allocSec=`cat .average_allocSec`
+average_runTime=`cat .average_runTime`
+{ echo $average_runTime"-"$average_allocSec | bc; } > .sql_time
+average_sqlTime=`cat .sql_time`
+
+rm -f .average_allocSec .average_runTime .sql_time
+
+echo "----------------------------------------------------"
+echo "Average time for allocation (in seconds): "$average_allocSec
+echo "Average running time (in seconds): "$average_runTime
+echo "SQL time (in seconds): "$average_sqlTime
+echo "----------------------------------------------------"
 
 rm -f $TPF1
 rm -f $TPF2
