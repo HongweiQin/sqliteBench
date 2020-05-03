@@ -11,10 +11,10 @@ datasize=4096
 DBPrefix="/mnt/qhw/Insert"
 
 #Where to store results
-RESULTPREFIX="res/"
+RESULTPREFIX=".res/"
 
 #Where to store memory allocation timing results
-FAKEPREFIX="fake/"
+FAKEPREFIX=".fake/"
 
 #sqlite3 binary
 SQLITE=/mnt/sdb/sqlite/bld/sqlite3
