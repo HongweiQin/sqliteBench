@@ -27,3 +27,4 @@ for pid in ${pids[*]}; do
 done
 
 echo "Finished!"
+./collectResult
