@@ -4,18 +4,18 @@ A Benchmark Tool For SQLite3
 
 ## Usage
 
-configuration:
+Config:
 
 `vim config`
 
-create databases and tables
+Create databases and tables
 
 `./prepareTest`
 
-run test
+Run test
 
 `./runTest`
 
-collect results
+Collect results
 
 `./collectResult`
