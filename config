@@ -7,6 +7,12 @@ nrows=4
 #Each table is defined as (long, char[$datasize])
 datasize=4096
 
+# Set test engine.
+# Current supported engines:
+# 	C
+# 	Shell
+SQLEngine=C
+
 #Where to store your database files
 DBPrefix="/mnt/qhw/Insert"
 
