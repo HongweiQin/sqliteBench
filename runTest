@@ -3,7 +3,7 @@
 source config
 
 if [ $SQLEngine == Shell ]; then
-	source tools/useshell
+	source tools/useShell
 	./collectResult
 elif [ $SQLEngine == C ]; then
 	source tools/useC
