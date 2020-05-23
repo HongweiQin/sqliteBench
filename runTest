@@ -6,7 +6,11 @@ if [ $SQLEngine == Shell ]; then
 	source tools/useShell
 	./collectResult
 elif [ $SQLEngine == C ]; then
-	source tools/useC
+	if [ $syncmode == fdatasync ]; then
+		source tools/useC_datasync
+	else
+		source tools/useC_fsync
+	fi
 	./collectResult
 else
 	echo "Not supported SQL engine:"$SQLEngine

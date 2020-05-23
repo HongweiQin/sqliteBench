@@ -2,7 +2,7 @@ echo "Start comparison test"
 for (( i=0;i<$njob;i++ ));
 do
 	DB=$DBPrefix$i".db"
-        { time ./tools/c/c_insertTest $datasize $nrows 0 $DB; } 2>${FAKEPREFIX}${i}.res &
+        { time ./tools/c/c_insertTest_fsync $datasize $nrows 0 $DB; } 2>${FAKEPREFIX}${i}.res &
         pids1[${i}]=$!
 done
 
@@ -16,7 +16,7 @@ echo "Start actual test"
 for (( i=0;i<$njob;i++ ));
 do
 	DB=$DBPrefix$i".db"
-	{ time ./tools/c/c_insertTest $datasize $nrows 1 $DB; } 2>${RESULTPREFIX}${i}.res &
+	{ time ./tools/c/c_insertTest_fsync $datasize $nrows 1 $DB; } 2>${RESULTPREFIX}${i}.res &
 	pids[${i}]=$!
 done
 

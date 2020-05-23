@@ -1,17 +1,22 @@
 #Number of concurrent jobs
-njob=16
+njob=1
 
 #Number of rows to insert for each job
 nrows=4
 
 #Each table is defined as (long, char[$datasize])
-datasize=4096
+datasize=64
 
 # Set test engine.
 # Current supported engines:
 # 	C
 # 	Shell
 SQLEngine=C
+
+# Sync mode for C engine
+# fsync: fsync mode
+# datasync: fdatasync mode
+syncmode=fdatasync
 
 #Where to store your database files
 DBPrefix="/mnt/qhw/Insert"
