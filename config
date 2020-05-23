@@ -14,9 +14,9 @@ datasize=64
 SQLEngine=C
 
 # Sync mode for C engine
-# fsync: fsync mode
-# datasync: fdatasync mode
-syncmode=fdatasync
+# FSYNC: fsync mode
+# DATASYNC: fdatasync mode
+syncmode=DATASYNC
 
 #Where to store your database files
 DBPrefix="/mnt/qhw/Insert"
