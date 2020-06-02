@@ -25,9 +25,10 @@ int main(int argc, char **argv){
 	char *dbname;
 	char *data, *cmd;
 	int whether_insert;
+	int sync_mode = 2;
 
-	if ( argc != 5 ) {
-		fprintf(stderr, "Usage: %s @datasize @nrows @insert @dbname\n", argv[0]);
+	if ( argc != 5 &&  argc != 6) {
+		fprintf(stderr, "Usage: %s @datasize @nrows @insert @dbname (@syncmode)\n", argv[0]);
 		return(1);
 	}
 
@@ -35,6 +36,9 @@ int main(int argc, char **argv){
 	nrows = atol(argv[2]);
 	whether_insert = atoi(argv[3]);
 	dbname = argv[4];
+
+	if (argc==6)
+		sync_mode = atoi(argv[5]);
 
 	//prepare data
 	cmd = malloc(datasize + 70);
@@ -52,6 +56,9 @@ int main(int argc, char **argv){
 		fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
 		goto errout3;
 	}
+
+	sprintf(cmd, "PRAGMA synchronous=%d;", sync_mode);
+	sqlite3_exec(db, cmd, callback, 0, &zErrMsg);
 
 	if (!whether_insert)
 		goto finish_out;
